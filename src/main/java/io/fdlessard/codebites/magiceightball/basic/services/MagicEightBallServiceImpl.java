@@ -50,7 +50,7 @@ public class MagicEightBallServiceImpl implements MagicEightBallService {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 
         try {
-            magicEightBallAnswers = mapper.readValue(classPathResource.getFile(), new TypeReference<List<MagicEightBallAnswer>>() {
+            magicEightBallAnswers = mapper.readValue(classPathResource.getInputStream(), new TypeReference<List<MagicEightBallAnswer>>() {
             });
         } catch (Exception e) {
             e.printStackTrace();
