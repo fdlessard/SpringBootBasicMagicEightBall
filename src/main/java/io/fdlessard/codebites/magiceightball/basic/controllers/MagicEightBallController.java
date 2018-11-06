@@ -4,32 +4,35 @@ import io.fdlessard.codebites.magiceightball.basic.domain.MagicEightBallAnswer;
 import io.fdlessard.codebites.magiceightball.basic.services.MagicEightBallService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/MagicEightBall")
+@RequestMapping(value = "/magiceightball", produces = "application/json")
 @Slf4j
 public class MagicEightBallController {
 
     @Autowired
     private MagicEightBallService magicEightBallService;
 
-    @GetMapping(value = "/isAlive", produces = "application/json")
+    @GetMapping(value = "/isAlive")
     public String isAlive() {
         log.debug("MagicEightBallController.isAlive()");
         return "MagicEightBallController is alive(";
     }
 
-    @GetMapping(value = "/shake", produces = "application/json")
+    @GetMapping(value = "/shake")
     @ResponseBody
     public MagicEightBallAnswer shake() {
         log.debug("MagicEightBallController.shake()");
         return magicEightBallService.shake();
     }
 
-    @GetMapping(value = "/", produces = "application/json")
+    @GetMapping(value = "/")
     @ResponseBody
     public List<MagicEightBallAnswer> getAll() {
         log.debug("MagicEightBallController.getAll()");

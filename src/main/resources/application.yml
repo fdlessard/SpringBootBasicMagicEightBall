@@ -1,0 +1,10 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: beans, health, loggers
+    health:
+      enabled: true
+    loggers:
+      enabled: true
+

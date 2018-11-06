@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.fdlessard.codebites.magiceightball</groupId>
-    <artifactId>basic</artifactId>
+    <artifactId>magiceightball</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -22,20 +22,23 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <plugin.fabric8io-docker.versionx>0.20.1</plugin.fabric8io-docker.versionx>
+        <docker.build.directory>${project.build.directory}/</docker.build.directory>
     </properties>
-
-
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -47,21 +50,72 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
             <version>2.9.7</version>
         </dependency>
-
+        <!--        <dependency>
+                    <groupId>org.cloudfoundry</groupId>
+                    <artifactId>cf-maven-plugin</artifactId>
+                    <version>1.0.4</version>
+                </dependency>-->
     </dependencies>
 
     <build>
+        <!--<pluginManagement>-->
+            <!--<plugins>-->
+                <!--<plugin>-->
+                    <!--<groupId>io.fabric8</groupId>-->
+                    <!--<artifactId>docker-maven-plugin</artifactId>-->
+                    <!--<version>${plugin.fabric8io-docker.version}</version>-->
+                <!--</plugin>-->
+            <!--</plugins>-->
+        <!--</pluginManagement>-->
+
+
         <plugins>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.27.1</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>%g/docker-magiceightball:0.1</name>
+                            <build>
+                                <dockerFileDir>${basedir}</dockerFileDir>
+                                <dockerFile>Dockerfile</dockerFile>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+
+            <!--            <plugin>
+                            <groupId>org.cloudfoundry</groupId>
+                            <artifactId>cf-maven-plugin</artifactId>
+                            <version>1.0.4</version>
+                            <configuration>
+                                <server>mycloudfoundry-instance</server>
+                                <target>https://api.cf.us10.hana.ondemand.com</target>
+                                <org>P1036236trial_trial</org>
+                                <space>dev</space>
+                                <appname>magiceightball</appname>
+                                <url>magiceightball.cfapps.us10.hana.ondemand.com</url>
+                                <memory>1024</memory>
+                                <diskQuota>1024</diskQuota>
+                                <healthCheckTimeout>60</healthCheckTimeout>
+                            </configuration>
+                        </plugin>-->
+
+
         </plugins>
     </build>
 
