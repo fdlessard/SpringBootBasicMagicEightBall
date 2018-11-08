@@ -16,13 +16,18 @@ import java.util.List;
 @Slf4j
 public class MagicEightBallController {
 
-    @Autowired
+    public static final String IS_ALIVE = "MagicEightBallController is alive";
+
     private MagicEightBallService magicEightBallService;
+
+    public MagicEightBallController(MagicEightBallService magicEightBallService) {
+        this.magicEightBallService = magicEightBallService;
+    }
 
     @GetMapping(value = "/isAlive")
     public String isAlive() {
         log.debug("MagicEightBallController.isAlive()");
-        return "MagicEightBallController is alive(";
+        return IS_ALIVE;
     }
 
     @GetMapping(value = "/shake")
