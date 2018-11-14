@@ -169,23 +169,26 @@
                     </images>
                 </configuration>
             </plugin>
-
-            <!--            <plugin>
-                            <groupId>org.cloudfoundry</groupId>
-                            <artifactId>cf-maven-plugin</artifactId>
-                            <version>1.0.4</version>
-                            <configuration>
-                                <server>mycloudfoundry-instance</server>
-                                <target>https://api.cf.us10.hana.ondemand.com</target>
-                                <org>P1036236trial_trial</org>
-                                <space>dev</space>
-                                <appname>magiceightball</appname>
-                                <url>magiceightball.cfapps.us10.hana.ondemand.com</url>
-                                <memory>1024</memory>
-                                <diskQuota>1024</diskQuota>
-                                <healthCheckTimeout>60</healthCheckTimeout>
-                            </configuration>
-                        </plugin>-->
+            <plugin>
+                <groupId>org.cloudfoundry</groupId>
+                <artifactId>cf-maven-plugin</artifactId>
+                <version>1.0.4</version>
+                <configuration>
+                    <server>sap-cloud-foundry</server>
+                    <target>https://api.cf.us10.hana.ondemand.com</target>
+                    <org></org>
+                    <space>dev</space>
+                    <appname></appname>
+                    <url>magiceightball.cfapps.us10.hana.ondemand.com</url>
+                    <memory>1024</memory>
+                    <diskQuota>1024</diskQuota>
+                    <username></username>
+                    <password></password>
+<!--
+                    <healthCheckTimeout>60</healthCheckTimeout>
+-->
+                </configuration>
+            </plugin>
 
         </plugins>
     </build>
