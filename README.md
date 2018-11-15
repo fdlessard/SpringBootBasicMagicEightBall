@@ -1,6 +1,6 @@
 # SpringBootBasicMagicEightBall
 
-[![Build Status](https://travis-ci.org/fdlessard/SpringBootCustomerCaching.svg)](https://travis-ci.org/fdlessard/SpringBootBasicMagicEightBall)
+[![Build Status](https://travis-ci.org/fdlessard/SpringBootBasicMagicEightBall.svg)](https://travis-ci.org/fdlessard/SpringBootBasicMagicEightBall)
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/fdlessard/SpringBootBasicMagicEightBall/blob/master/LICENSE)
 
 https://magiceightball.cfapps.us10.hana.ondemand.com/magiceightball/shake
