@@ -151,14 +151,20 @@
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.27.1</version>
+                <version>0.27.2</version>
                 <configuration>
+                    <registry>registry.hub.docker.com</registry>
+                    <authConfig>
+                        <username></username>
+                        <password></password>
+                    </authConfig>
+                    <useColor>true</useColor>
+                    <verbose>true</verbose>
                     <images>
                         <image>
-                            <name>%g/docker-magiceightball:0.1</name>
+                            <name>fdlessard/magic-eight-ball-image:latest</name>
                             <build>
-                                <dockerFileDir>${basedir}</dockerFileDir>
-                                <dockerFile>Dockerfile</dockerFile>
+                                <dockerFile>${project.basedir}/Dockerfile</dockerFile>
                             </build>
                             <run>
                                 <ports>
@@ -176,17 +182,17 @@
                 <configuration>
                     <server>sap-cloud-foundry</server>
                     <target>https://api.cf.us10.hana.ondemand.com</target>
-                    <org></org>
+                    <org>P1036236trial_trial</org>
                     <space>dev</space>
-                    <appname></appname>
+                    <appname>magiceightball</appname>
                     <url>magiceightball.cfapps.us10.hana.ondemand.com</url>
                     <memory>1024</memory>
                     <diskQuota>1024</diskQuota>
                     <username></username>
                     <password></password>
-<!--
-                    <healthCheckTimeout>60</healthCheckTimeout>
--->
+                    <!--
+                                        <healthCheckTimeout>60</healthCheckTimeout>
+                    -->
                 </configuration>
             </plugin>
 

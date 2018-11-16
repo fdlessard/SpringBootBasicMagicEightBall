@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = {MagicEightBallBasicApplication.class})
+@SpringBootTest()
 class MagicEightBallServiceImplIt {
 
     @Autowired
@@ -23,7 +23,6 @@ class MagicEightBallServiceImplIt {
 
     @BeforeEach
     void beforeEach() {
-
     }
 
     @Test
